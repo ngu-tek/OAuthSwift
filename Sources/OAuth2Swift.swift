@@ -332,6 +332,11 @@ open class OAuth2Swift: OAuthSwift {
         )
     }
 
+    @discardableResult
+    open func setCodeVerifier(verifier: String) {
+        self.codeVerifier = verifier
+    }
+
     /// use RFC7636 PKCE credentials - convenience method
     @discardableResult
     open func authorize(withCallbackURL url: URLConvertible, scope: String, state: String, codeChallenge: String, codeChallengeMethod: String = "S256", codeVerifier: String, parameters: Parameters = [:], headers: OAuthSwift.Headers? = nil, completionHandler completion: @escaping TokenCompletionHandler) -> OAuthSwiftRequestHandle? {
